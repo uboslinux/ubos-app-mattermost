@@ -1,0 +1,42 @@
+developer=http://mattermost.org/
+url=${developer}
+maintainer=http://indiecomputing.com/
+pkgname=$(basename $(pwd))
+pkgver=1.4.0
+pkgrel=1
+pkgdesc="An open source, self-hosted Slack-alternative"
+arch=('x86_64') # This package downloads a binary, and does not currently recompile it
+license=("mit")
+source=("https://github.com/mattermost/platform/releases/download/v${pkgver}/mattermost.tar.gz")
+options=('!strip')
+install=${pkgname}.install
+sha512sums=('cca7903f46c419f9613438b4004e61694cef84cc805a30257d74091a4ed3028a50dbe25cf7894e764e21bf2c32ac9270b3e239c2a18077004035fa7957d11a4c')
+
+package() {
+# Manifest
+    mkdir -p ${pkgdir}/var/lib/ubos/manifests
+    install -m0644 ${startdir}/ubos-manifest.json ${pkgdir}/var/lib/ubos/manifests/${pkgname}.json
+
+# Icons
+#    mkdir -p ${pkgdir}/srv/http/_appicons/$pkgname
+#    install -m644 ${startdir}/appicons/{72x72,144x144}.png ${pkgdir}/srv/http/_appicons/$pkgname/
+
+# Place for instance-specific config file
+    mkdir -p ${pkgdir}/etc/mattermost
+
+# Data directory
+    mkdir -p ${pkgdir}/var/lib/${pkgname}
+
+# Systemd
+    mkdir -p ${pkgdir}/usr/lib/systemd/system
+    cp ${startdir}/systemd/*.service ${pkgdir}/usr/lib/systemd/system/
+
+# Templates
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/tmpl
+    cp ${startdir}/tmpl/*.tmpl ${pkgdir}/usr/share/${pkgname}/tmpl
+
+# Code
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/mattermost
+    cp -r -p ${srcdir}/mattermost/* ${pkgdir}/usr/share/${pkgname}/mattermost/
+
+}

@@ -1,0 +1,4 @@
+mattermost-*.pkg*
+mattermost.tar.gz
+src/
+pkg/
