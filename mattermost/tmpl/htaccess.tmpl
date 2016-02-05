@@ -1,2 +1,11 @@
+# from http://askubuntu.com/questions/691000/apache2-reverseproxy-for-mattermost
+
+RewriteEngine on
+RewriteCond %{REQUEST_URI} ^/api/v1/websocket [NC,OR]
+RewriteCond %{HTTP:UPGRADE} ^WebSocket$ [NC,OR]
+RewriteCond %{HTTP:CONNECTION} ^Upgrade$ [NC]
+RewriteRule .* ws://127.0.0.1:8065%{REQUEST_URI} [P,QSA,L]
+  
 ProxyPass ${appconfig.contextorslash} http://127.0.0.1:8065${appconfig.contextorslash}
 ProxyPassReverse ${appconfig.contextorslash} http://127.0.0.1:8065${appconfig.contextorslash}
+  

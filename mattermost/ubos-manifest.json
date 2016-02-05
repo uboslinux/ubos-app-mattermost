@@ -6,7 +6,8 @@
             "fixedcontext" : "",
             "apache2modules" : [
                 "proxy",
-                "proxy_http"
+                "proxy_http",
+                "rewrite"
             ],
 
             "appconfigitems" : [
