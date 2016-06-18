@@ -1,4 +1,4 @@
 mattermost-*.pkg*
-mattermost.tar.gz
+mattermost-*.tar.gz
 src/
 pkg/
