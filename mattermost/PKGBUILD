@@ -2,7 +2,7 @@ developer=http://mattermost.org/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
-pkgver=3.2.0
+pkgver=3.4.0
 pkgrel=1
 pkgdesc="An open source, self-hosted Slack-alternative"
 arch=('x86_64') # This package downloads a binary, and does not currently recompile it
@@ -10,7 +10,7 @@ license=("mit")
 source=("https://releases.mattermost.com/${pkgver}/mattermost-team-${pkgver}-linux-amd64.tar.gz")
 options=('!strip')
 install=package.install
-sha512sums=('7d80c0c707f70cd3b886a525b4a118c9cb44f4cd00dde339fbc9211d124677edd5d05157c9dd25b75a07264c531cf8857d52a824004495b12d871e702be3978c')
+sha512sums=('c7c1e5d718f6296a7f1714976874672976adc327120c64069fdc3337e418636c7e525b0b3772a6519c13afc06d3325d9301f80de47e416f6237dee4abbdd3add')
 
 package() {
 # Manifest
@@ -27,6 +27,10 @@ package() {
 # Data directory
     mkdir -p ${pkgdir}/var/lib/${pkgname}
 
+# Open ports
+    mkdir -p ${pkgdir}/etc/ubos/open-ports.d
+    install -m644 ${startdir}/open-ports.d/mattermost ${pkgdir}/etc/ubos/open-ports.d/
+
 # Systemd
     mkdir -p ${pkgdir}/usr/lib/systemd/system
     cp ${startdir}/systemd/*.service ${pkgdir}/usr/lib/systemd/system/
@@ -38,5 +42,7 @@ package() {
 # Code
     mkdir -p ${pkgdir}/usr/share/${pkgname}/mattermost
     cp -r -p ${srcdir}/mattermost/* ${pkgdir}/usr/share/${pkgname}/mattermost/
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/sql
+    install ${startdir}/sql/* ${pkgdir}/usr/share/${pkgname}/sql/
 
 }

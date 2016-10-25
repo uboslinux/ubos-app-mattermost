@@ -18,7 +18,7 @@
         "SessionCacheInMinutes": 10
     },
     "TeamSettings": {
-        "SiteName": "Mattermost",
+        "SiteName": "${installable.customizationpoints.title.value}",
         "MaxUsersPerTeam": 50,
         "EnableTeamCreation": true,
         "EnableUserCreation": true,
@@ -33,7 +33,7 @@
         "MaxIdleConns": 10,
         "MaxOpenConns": 10,
         "Trace": false,
-        "AtRestEncryptKey": "7rAh6iwQCkV4cA1Gsg3fgGOXJAQ43QVg"
+        "AtRestEncryptKey": "${installable.customizationpoints.AtRestEncryptKey.value}"
     },
     "LogSettings": {
         "EnableConsole": true,
@@ -47,7 +47,7 @@
         "DriverName": "local",
         "Directory": "/var/lib/mattermost/${appconfig.appconfigid}/data/",
         "EnablePublicLink": true,
-        "PublicLinkSalt": "A705AklYF8MFDOfcwh3I488G8vtLlVip",
+        "PublicLinkSalt": "${installable.customizationpoints.PublicLinkSalt.value}",
         "ThumbnailWidth": 120,
         "ThumbnailHeight": 100,
         "PreviewWidth": 1024,
@@ -75,8 +75,8 @@
         "SMTPServer": "",
         "SMTPPort": "",
         "ConnectionSecurity": "",
-        "InviteSalt": "bjlSR4QqkXFBr7TP4oDzlfZmcNuH9YoS",
-        "PasswordResetSalt": "vZ4DcKyVVRlKHHJpexcuXzojkE5PZ5eL",
+        "InviteSalt": "${installable.customizationpoints.InviteSalt.value}",
+        "PasswordResetSalt": "${installable.customizationpoints.PasswordResetSalt.value}",
         "SendPushNotifications": false,
         "PushNotificationServer": ""
     },
