@@ -1,0 +1,14 @@
+{
+   "appconfigs" : [
+      {
+         "appid" : "mattermost",
+      }
+   ],
+   "admin" : {
+      "credential" : "qwerqwer",
+      "email" : "test@indiecomp.com",
+      "userid" : "admin",
+      "username" : "admin"
+   },
+   "hostname" : "ubos"
+}

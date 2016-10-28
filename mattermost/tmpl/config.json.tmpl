@@ -33,7 +33,7 @@
         "MaxIdleConns": 10,
         "MaxOpenConns": 10,
         "Trace": false,
-        "AtRestEncryptKey": "${installable.customizationpoints.AtRestEncryptKey.value}"
+        "AtRestEncryptKey": "${installable.customizationpoints.at_rest_encrypt_key.value}"
     },
     "LogSettings": {
         "EnableConsole": true,
@@ -47,7 +47,7 @@
         "DriverName": "local",
         "Directory": "/var/lib/mattermost/${appconfig.appconfigid}/data/",
         "EnablePublicLink": true,
-        "PublicLinkSalt": "${installable.customizationpoints.PublicLinkSalt.value}",
+        "PublicLinkSalt": "${installable.customizationpoints.public_link_salt.value}",
         "ThumbnailWidth": 120,
         "ThumbnailHeight": 100,
         "PreviewWidth": 1024,
@@ -75,8 +75,8 @@
         "SMTPServer": "",
         "SMTPPort": "",
         "ConnectionSecurity": "",
-        "InviteSalt": "${installable.customizationpoints.InviteSalt.value}",
-        "PasswordResetSalt": "${installable.customizationpoints.PasswordResetSalt.value}",
+        "InviteSalt": "${installable.customizationpoints.invite_salt.value}",
+        "PasswordResetSalt": "${installable.customizationpoints.password_reset_salt.value}",
         "SendPushNotifications": false,
         "PushNotificationServer": ""
     },
@@ -97,7 +97,7 @@
         "AboutLink": "/static/help/about.html",
         "HelpLink": "/static/help/help.html",
         "ReportAProblemLink": "/static/help/report_problem.html",
-        "SupportEmail": "feedback@mattermost.com"
+        "SupportEmail": "${installable.customizationpoints.support_email.value}"
     },
     "GitLabSettings": {
         "Enable": false,

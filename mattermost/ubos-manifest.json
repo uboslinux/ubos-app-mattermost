@@ -60,46 +60,53 @@
                     "source" : "sql/fix-3.2-to-3.4-upgrade.sql"
                 }
             ]
+        }
+    },
+    "customizationpoints" : {
+        "title" : {
+            "type"        : "string",
+            "required"    : false,
+            "default" : {
+                "value" : "Mattermost"
+            }
         },
-        "customizationpoints" : {
-            "title" : {
-                "type"        : "string",
-                "required"    : false,
-                "default" : {
-                    "value" : "Mattermost"
-                }
-            },
-            "AtRestEncryptKey" : {
-                "type"        : "string",
-                "required"    : false,
-                "private"     : true,
-                "default" : {
-                    "expression" : "${randomPassword(32)}"
-                }
-            },
-            "PublicLinkSalt" : {
-                "type"        : "string",
-                "required"    : false,
-                "private"     : true,
-                "default" : {
-                    "expression" : "${randomPassword(32)}"
-                }
-            },
-            "InviteSalt" : {
-                "type"        : "string",
-                "required"    : false,
-                "private"     : true,
-                "default" : {
-                    "expression" : "${randomPassword(32)}"
-                }
-            },
-            "PasswordResetSalt" : {
-                "type"        : "string",
-                "required"    : false,
-                "private"     : true,
-                "default" : {
-                    "expression" : "${randomPassword(32)}"
-                }
+        "at_rest_encrypt_key" : {
+            "type"        : "string",
+            "required"    : false,
+            "private"     : true,
+            "default" : {
+                "expression" : "${randomPassword(32)}"
+            }
+        },
+        "public_link_salt" : {
+            "type"        : "string",
+            "required"    : false,
+            "private"     : true,
+            "default" : {
+                "expression" : "${randomPassword(32)}"
+            }
+        },
+        "invite_salt" : {
+            "type"        : "string",
+            "required"    : false,
+            "private"     : true,
+            "default" : {
+                "expression" : "${randomPassword(32)}"
+            }
+        },
+        "password_reset_salt" : {
+            "type"        : "string",
+            "required"    : false,
+            "private"     : true,
+            "default" : {
+                "expression" : "${randomPassword(32)}"
+            }
+        },
+        "support_email" : {
+            "type"        : "string",
+            "required"    : false,
+            "default" : {
+                "expression" : "feedback@mattermost.com"
             }
         }
     }
