@@ -9,6 +9,7 @@ RewriteRule .* ws://127.0.0.1:8065%{REQUEST_URI} [P,QSA,L]
 ProxyPass /robots.txt !
 ProxyPass /favicon.ico !
 ProxyPass /sitemap.xml !
+ProxyPass /.well-known !
 
 ProxyPass ${appconfig.contextorslash} http://127.0.0.1:8065${appconfig.contextorslash}
 ProxyPassReverse ${appconfig.contextorslash} http://127.0.0.1:8065${appconfig.contextorslash}
