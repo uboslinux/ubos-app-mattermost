@@ -8,6 +8,9 @@ pkgdesc="An open source, self-hosted Slack-alternative"
 arch=('x86_64') # This package downloads a binary, and does not currently recompile it
 license=("mit")
 source=("https://releases.mattermost.com/${pkgver}/mattermost-team-${pkgver}-linux-amd64.tar.gz")
+depends=(
+    'smtp-server'
+)
 options=('!strip')
 install=package.install
 sha512sums=('c7c1e5d718f6296a7f1714976874672976adc327120c64069fdc3337e418636c7e525b0b3772a6519c13afc06d3325d9301f80de47e416f6237dee4abbdd3add')
