@@ -66,7 +66,7 @@
     },
     "EmailSettings": {
         "EnableSignUpWithEmail": true,
-        "SendEmailNotifications": false,
+        "SendEmailNotifications": true,
         "RequireEmailVerification": false,
         "FeedbackName": "",
         "FeedbackEmail": "",
@@ -92,11 +92,11 @@
         "ShowFullName": true
     },
     "SupportSettings": {
-        "TermsOfServiceLink": "/static/help/terms.html",
-        "PrivacyPolicyLink": "/static/help/privacy.html",
-        "AboutLink": "/static/help/about.html",
-        "HelpLink": "/static/help/help.html",
-        "ReportAProblemLink": "/static/help/report_problem.html",
+        "TermsOfServiceLink": "${installable.customizationpoints.terms_of_service_link.value}",
+        "PrivacyPolicyLink": "${installable.customizationpoints.privacy_policy_link.value}",
+        "AboutLink": "${installable.customizationpoints.about_link.value}",
+        "HelpLink": "${installable.customizationpoints.help_link.value}",
+        "ReportAProblemLink": "${installable.customizationpoints.report_a_problem_link.value}",
         "SupportEmail": "${installable.customizationpoints.support_email.value}"
     },
     "GitLabSettings": {

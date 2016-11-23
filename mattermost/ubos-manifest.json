@@ -102,6 +102,41 @@
                 "expression" : "${randomPassword(32)}"
             }
         },
+        "terms_of_service_link" : {
+            "type"        : "url",
+            "required"    : false,
+            "default" : {
+                "expression" : "https://about.mattermost.com/default-terms/"
+            }
+        },
+        "privacy_policy_link" : {
+            "type"        : "url",
+            "required"    : false,
+            "default" : {
+                "expression" : "https://about.mattermost.com/default-privacy-policy/"
+            }
+        },
+        "about_link" : {
+            "type"        : "url",
+            "required"    : false,
+            "default" : {
+                "expression" : "https://about.mattermost.com/default-about/"
+            }
+        },
+        "help_link" : {
+            "type"        : "url",
+            "required"    : false,
+            "default" : {
+                "expression" : "https://about.mattermost.com/default-help/"
+            }
+        },
+        "report_a_problem_link" : {
+            "type"        : "url",
+            "required"    : false,
+            "default" : {
+                "expression" : "https://about.mattermost.com/default-report-a-problem/"
+            }
+        },
         "support_email" : {
             "type"        : "string",
             "required"    : false,
