@@ -3,10 +3,11 @@ Description=Mattermost
 
 [Service]
 WorkingDirectory=/usr/share/mattermost/mattermost
-ExecStart=/usr/share/mattermost/mattermost/bin/platform -config=/etc/mattermost/%I.json
+ExecStart=/usr/share/mattermost/mattermost/bin/platform --config=/etc/mattermost/%I.json
 User=mattermost
 Group=mattermost
 LimitNOFILE=49152
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
