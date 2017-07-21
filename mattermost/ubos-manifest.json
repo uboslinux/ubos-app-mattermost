@@ -5,8 +5,10 @@
         "apache2" : {
             "fixedcontext" : "",
             "apache2modules" : [
+                "headers",
                 "proxy",
                 "proxy_http",
+                "proxy_wstunnel",
                 "rewrite"
             ],
 
@@ -58,6 +60,15 @@
                     "name"   : "maindb",
                     "type"   : "sqlscript",
                     "source" : "sql/fix-3.2-to-3.4-upgrade.sql"
+                }
+            ]
+        },
+        "ports" : {
+            "appconfigitems" : [
+                {
+                    "name"  : "mainport",
+                    "scope" : "hostonly",
+                    "type"  : "tcp"
                 }
             ]
         }

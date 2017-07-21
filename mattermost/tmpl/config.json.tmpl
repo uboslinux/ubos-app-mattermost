@@ -1,6 +1,7 @@
 {
     "ServiceSettings": {
-        "ListenAddress": ":8065",
+        "SiteURL": "${site.protocol}://${site.hostname}${appconfig.context}/",
+        "ListenAddress": ":${appconfig.port.mainport}",
         "MaximumLoginAttempts": 10,
         "SegmentDeveloperKey": "",
         "GoogleDeveloperKey": "",
