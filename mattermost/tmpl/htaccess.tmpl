@@ -6,7 +6,7 @@ RewriteEngine on
 RewriteCond %{REQUEST_URI} ^/api/v[0-9]+/(users/)?websocket$ [NC,OR]
 RewriteCond %{HTTP:UPGRADE} ^WebSocket$ [NC,OR]
 RewriteCond %{HTTP:CONNECTION} ^Upgrade$ [NC]
-RewriteRule .* ws://127.0.0.1:${appconfig.port.mainport}%{REQUEST_URI} [P,QSA,L]
+RewriteRule .* ws://127.0.0.1:${appconfig.tcpport.mainport}%{REQUEST_URI} [P,QSA,L]
 
 ProxyPass /robots.txt !
 ProxyPass /favicon.ico !
@@ -15,11 +15,11 @@ ProxyPass /.well-known !
 ProxyPass /_common !
 ProxyPass /_errors !
 
-ProxyPass ${appconfig.context}/api/v3/users/websocket ws://127.0.0.1:${appconfig.port.mainport}${appconfig.context}/api/v3/users/websocket
-ProxyPassReverse ${appconfig.context}/api/v3/users/websocket ws://127.0.0.1:${appconfig.port.mainport}${appconfig.context}/api/v3/users/websocket
+ProxyPass ${appconfig.context}/api/v3/users/websocket ws://127.0.0.1:${appconfig.tcpport.mainport}${appconfig.context}/api/v3/users/websocket
+ProxyPassReverse ${appconfig.context}/api/v3/users/websocket ws://127.0.0.1:${appconfig.tcpport.mainport}${appconfig.context}/api/v3/users/websocket
 
-ProxyPass ${appconfig.contextorslash} http://127.0.0.1:${appconfig.port.mainport}${appconfig.contextorslash}
-ProxyPassReverse ${appconfig.contextorslash} http://127.0.0.1:${appconfig.port.mainport}${appconfig.contextorslash}
+ProxyPass ${appconfig.contextorslash} http://127.0.0.1:${appconfig.tcpport.mainport}${appconfig.contextorslash}
+ProxyPassReverse ${appconfig.contextorslash} http://127.0.0.1:${appconfig.tcpport.mainport}${appconfig.contextorslash}
 ProxyPassReverseCookieDomain 127.0.0.1 ${site.hostname}
 
 ProxyPreserveHost On

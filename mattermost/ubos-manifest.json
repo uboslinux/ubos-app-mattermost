@@ -14,8 +14,12 @@
 
             "appconfigitems" : [
                 {
-                    "type" : "file",
-                    "name" : "${appconfig.apache2.appconfigfragmentfile}",
+                    "type"         : "tcpport",
+                    "name"         : "mainport"
+                },
+                {
+                    "type"         : "file",
+                    "name"         : "${appconfig.apache2.appconfigfragmentfile}",
                     "template"     : "tmpl/htaccess.tmpl",
                     "templatelang" : "varsubst"
                 },
@@ -60,15 +64,6 @@
                     "name"   : "maindb",
                     "type"   : "sqlscript",
                     "source" : "sql/fix-3.2-to-3.4-upgrade.sql"
-                }
-            ]
-        },
-        "ports" : {
-            "appconfigitems" : [
-                {
-                    "name"  : "mainport",
-                    "scope" : "hostonly",
-                    "type"  : "tcp"
                 }
             ]
         }
