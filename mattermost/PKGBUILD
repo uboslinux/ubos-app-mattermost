@@ -2,8 +2,8 @@ developer=http://mattermost.org/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
-pkgver=3.9.0
-pkgrel=2
+pkgver=4.3.1
+pkgrel=1
 pkgdesc="An open source, self-hosted Slack-alternative"
 arch=('x86_64') # This package downloads a binary, and does not currently recompile it
 license=("mit")
@@ -13,7 +13,7 @@ depends=(
 )
 options=('!strip')
 install=package.install
-sha512sums=('2391c2564d6cccbb3c925c3cd7c4d5fde6de144cc7960ec43cc903f222352eaa312f58925b32e6f7dd88338e9b2efee0d5e50c902f7aeb3bc5dbdebc3b70b379')
+sha512sums=('bd0f38b9c321f67c16ffacb82b5ff25df358c6b399434dda9526f9c9474c214a063191ecf744e664b8a583f70e88ad3fdc091a5545ba7fb889d8af15a2da7b5f')
 
 package() {
 # Manifest
