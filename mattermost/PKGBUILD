@@ -14,7 +14,7 @@ depends=(
 )
 options=('!strip')
 install=package.install
-sha512sums=('bd0f38b9c321f67c16ffacb82b5ff25df358c6b399434dda9526f9c9474c214a063191ecf744e664b8a583f70e88ad3fdc091a5545ba7fb889d8af15a2da7b5f')
+sha512sums=('d7b7e14fdb1e00db494084568b99630cf5c0b7d038b193879f34b8034eb9894ba4644de23d8d8f3a87d630cf06f98ae9cc5c3a97a9617b74d782fc96d4c3167b')
 
 package() {
 # Manifest
@@ -41,7 +41,7 @@ package() {
 
 # Scripts
     mkdir -p ${pkgdir}/usr/share/${pkgname}/bin
-    cp ${startdir}/bin/* ${pkgdir}/usr/share/${pkgname}/tmpl
+    cp ${startdir}/bin/* ${pkgdir}/usr/share/${pkgname}/bin
 
 # Templates
     mkdir -p ${pkgdir}/usr/share/${pkgname}/tmpl
