@@ -25,17 +25,35 @@
                 },
                 {
                     "type"         : "directory",
-                    "name"         : "/var/lib/mattermost/${appconfig.appconfigid}",
+                    "name"         : "${appconfig.datadir}",
                     "uname"        : "mattermost",
                     "gname"        : "mattermost"
                 },
                 {
                     "type"         : "directory",
-                    "name"         : "/var/lib/mattermost/${appconfig.appconfigid}/data",
+                    "name"         : "${appconfig.datadir}/data",
                     "uname"        : "mattermost",
                     "gname"        : "mattermost",
                     "retentionpolicy"  : "keep",
                     "retentionbucket"  : "datadir"
+                },
+                {
+                    "type"         : "directory",
+                    "name"         : "${appconfig.datadir}/plugins",
+                    "uname"        : "mattermost",
+                    "gname"        : "mattermost"
+                },
+                {
+                    "type"         : "symlink",
+                    "names"        : [
+                        "${appconfig.datadir}/bin",
+                        "${appconfig.datadir}/client",
+                        "${appconfig.datadir}/config",
+                        "${appconfig.datadir}/fonts",
+                        "${appconfig.datadir}/i18n",
+                        "${appconfig.datadir}/templates"
+                    ],
+                    "source"       : "mattermost/$2"
                 },
                 {
                     "type"         : "file",
@@ -45,7 +63,13 @@
                 },
                 {
                     "type"         : "perlscript",
-                    "source"       : "bin/ensure-logfile.pl"
+                    "source"       : "bin/ensure-logdir.pl"
+                },
+                {
+                    "type"         : "file",
+                    "name"         : "/etc/logrotate.d/mattermost-${appconfig.appconfigid}",
+                    "template"     : "tmpl/logrotate.tmpl",
+                    "templatelang" : "varsubst"
                 },
                 {
                     "type"         : "systemd-service",
@@ -97,14 +121,6 @@
             }
         },
         "invite_salt" : {
-            "type"        : "string",
-            "required"    : false,
-            "private"     : true,
-            "default" : {
-                "expression" : "${randomPassword(32)}"
-            }
-        },
-        "password_reset_salt" : {
             "type"        : "string",
             "required"    : false,
             "private"     : true,

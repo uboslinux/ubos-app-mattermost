@@ -1,8 +1,9 @@
 [Unit]
 Description=Mattermost
+Wants=postfix.service
 
 [Service]
-WorkingDirectory=/usr/share/mattermost/mattermost
+WorkingDirectory=/var/lib/mattermost/%I
 ExecStart=/usr/share/mattermost/mattermost/bin/platform --config=/etc/mattermost/%I.json
 User=mattermost
 Group=mattermost
