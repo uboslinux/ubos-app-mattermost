@@ -2,6 +2,8 @@
 #
 # Ensure that the log directory exists and we can write to it
 #
+# Copyright (C) 2014 and later, Indie Computing Corp. All rights reserved. License: see package.
+#
 
 use strict;
 

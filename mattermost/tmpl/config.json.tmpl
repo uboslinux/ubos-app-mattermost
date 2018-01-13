@@ -52,7 +52,10 @@
         "EnableChannelViewedMessages": true,
         "EnableUserStatuses": true,
         "ClusterLogTimeoutMilliseconds": 2000,
-        "CloseUnusedDirectMessages": false
+        "CloseUnusedDirectMessages": false,
+        "EnablePreviewFeatures": true,
+        "CloseUnusedDirectMessages": false,
+        "ExperimentalEnableAuthenticationTransfer" : true
     },
     "TeamSettings": {
         "SiteName": "${installable.customizationpoints.title.value}",
@@ -160,7 +163,8 @@
         "EmailBatchingBufferSize": 256,
         "EmailBatchingInterval": 30,
         "SkipServerCertificateVerification": false,
-        "EmailNotificationContentsType": "full"
+        "EmailNotificationContentsType": "full",
+        "UseChannelInEmailNotifications": false
     },
     "RateLimitSettings": {
         "Enable": false,
@@ -339,7 +343,8 @@
         "EnableUploads": false,
         "Directory": "/var/lib/mattermost/${appconfig.appconfigid}/plugins",
         "Plugins": {},
-        "PluginStates": {}
+        "PluginStates": {},
+        "ClientDirectory": "/var/lib/mattermost/${appconfig.appconfigid}/client-plugins"
     }
 }
 

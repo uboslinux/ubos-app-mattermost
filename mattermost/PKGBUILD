@@ -2,11 +2,11 @@ developer=http://mattermost.org/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
-pkgver=4.4.2
-pkgrel=2
+pkgver=4.5.0
+pkgrel=1
 pkgdesc="An open source, self-hosted Slack-alternative"
 arch=('x86_64') # This package downloads a binary, and does not currently recompile it
-license=("mit")
+license=("custom:${pkgname}")
 source=("https://releases.mattermost.com/${pkgver}/mattermost-team-${pkgver}-linux-amd64.tar.gz")
 releasepage=('https://about.mattermost.com/download/')
 depends=(
@@ -14,7 +14,7 @@ depends=(
 )
 options=('!strip')
 install=package.install
-sha512sums=('d7b7e14fdb1e00db494084568b99630cf5c0b7d038b193879f34b8034eb9894ba4644de23d8d8f3a87d630cf06f98ae9cc5c3a97a9617b74d782fc96d4c3167b')
+sha512sums=('5a5ee84bd766f84dc1de381efde2482fe44bc1196f62af3a51f7d7a43a698572b1be0f7844b0cd4db4a80160da383efad794036cc79c49dfa477bfb6956f8906')
 
 package() {
 # Manifest
@@ -30,10 +30,6 @@ package() {
 
 # Data directory
     mkdir -p ${pkgdir}/var/lib/${pkgname}
-
-# Open ports
-    mkdir -p ${pkgdir}/etc/ubos/open-ports.d
-    install -m644 ${startdir}/open-ports.d/mattermost ${pkgdir}/etc/ubos/open-ports.d/
 
 # Systemd
     mkdir -p ${pkgdir}/usr/lib/systemd/system
@@ -53,4 +49,7 @@ package() {
     mkdir -p ${pkgdir}/usr/share/${pkgname}/sql
     install ${startdir}/sql/* ${pkgdir}/usr/share/${pkgname}/sql/
 
+# License
+    mkdir -p ${pkgdir}/usr/share/licenses/${pkgname}
+    install ${srcdir}/mattermost/MIT-COMPILED-LICENSE.md -t ${pkgdir}/usr/share/licenses/${pkgname}/
 }

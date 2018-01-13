@@ -24,6 +24,12 @@
                     "templatelang" : "varsubst"
                 },
                 {
+                    "type"         : "file",
+                    "name"         : "/etc/ubos/open-ports.d/mattermost-${appconfig.appconfigid}",
+                    "template"     : "tmpl/open-ports.tmpl",
+                    "templatelang" : "varsubst"
+                },
+                {
                     "type"         : "directory",
                     "name"         : "${appconfig.datadir}",
                     "uname"        : "mattermost",
@@ -40,6 +46,12 @@
                 {
                     "type"         : "directory",
                     "name"         : "${appconfig.datadir}/plugins",
+                    "uname"        : "mattermost",
+                    "gname"        : "mattermost"
+                },
+                {
+                    "type"         : "directory",
+                    "name"         : "${appconfig.datadir}/client-plugins",
                     "uname"        : "mattermost",
                     "gname"        : "mattermost"
                 },

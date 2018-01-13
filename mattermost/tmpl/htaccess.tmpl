@@ -1,6 +1,9 @@
 # From http://askubuntu.com/questions/691000/apache2-reverseproxy-for-mattermost
 # and  https://docs.mattermost.com/install/config-apache2.html?highlight=apache
 # adapted
+#
+# Copyright (C) 2014 and later, Indie Computing Corp. All rights reserved. License: see package.
+#
 
 RewriteEngine on
 RewriteCond %{REQUEST_URI} ^/api/v[0-9]+/(users/)?websocket$ [NC,OR]
