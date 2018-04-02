@@ -3,6 +3,9 @@ Description=Mattermost
 Wants=postfix.service
 
 [Service]
+ExecStartPre=/usr/share/ubos-admin/bin/ubos-service-prestart mattermost@%I
+ExecStopPost=/usr/share/ubos-admin/bin/ubos-service-poststop mattermost@%I
+
 WorkingDirectory=/var/lib/mattermost/%I
 ExecStart=/usr/share/mattermost/mattermost/bin/platform --config=/etc/mattermost/%I.json
 User=mattermost
