@@ -6,8 +6,8 @@ Wants=postfix.service
 ExecStartPre=/usr/share/ubos-admin/bin/ubos-service-prestart mattermost@%I
 ExecStopPost=/usr/share/ubos-admin/bin/ubos-service-poststop mattermost@%I
 
-WorkingDirectory=/var/lib/mattermost/%I
-ExecStart=/usr/share/mattermost/mattermost/bin/platform --config=/etc/mattermost/%I.json
+WorkingDirectory=/ubos/lib/mattermost/%I
+ExecStart=/ubos/share/mattermost/mattermost/bin/platform --config=/etc/mattermost/%I.json
 User=mattermost
 Group=mattermost
 LimitNOFILE=49152

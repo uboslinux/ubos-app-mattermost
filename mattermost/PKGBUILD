@@ -18,36 +18,31 @@ sha512sums=('9c421c0a0bf0b5e0dcc121511180dce6a70dd600431419020c5617fafe7b2c61825
 
 package() {
 # Manifest
-    mkdir -p ${pkgdir}/var/lib/ubos/manifests
-    install -m0644 ${startdir}/ubos-manifest.json ${pkgdir}/var/lib/ubos/manifests/${pkgname}.json
+    install -D -m0644 ${startdir}/ubos-manifest.json ${pkgdir}/ubos/lib/ubos/manifests/${pkgname}.json
 
 # Icons
-    mkdir -p ${pkgdir}/srv/http/_appicons/$pkgname
-    install -m644 ${startdir}/appicons/{72x72,144x144}.png ${pkgdir}/srv/http/_appicons/$pkgname/
+    install -D -m0644 ${startdir}/appicons/{72x72,144x144}.png -t ${pkgdir}/ubos/http/_appicons/${pkgname}/
 
 # Place for instance-specific config file
     mkdir -p ${pkgdir}/etc/mattermost
 
 # Data directory
-    mkdir -p ${pkgdir}/var/lib/${pkgname}
+    mkdir -p ${pkgdir}/ubos/lib/${pkgname}
 
 # Systemd
-    mkdir -p ${pkgdir}/usr/lib/systemd/system
-    cp ${startdir}/systemd/*.service ${pkgdir}/usr/lib/systemd/system/
+    install -D -m0644 ${startdir}/systemd/*.service -t ${pkgdir}/usr/lib/systemd/system/
+    install -D -m0644 ${startdir}/mattermost.conf   -t ${pkgdir}/usr/lib/sysusers.d/
 
 # Scripts
-    mkdir -p ${pkgdir}/usr/share/${pkgname}/bin
-    cp ${startdir}/bin/* ${pkgdir}/usr/share/${pkgname}/bin
+    install -D -m0755 ${startdir}/bin/* -t ${pkgdir}/ubos/share/${pkgname}/bin/
 
 # Templates
-    mkdir -p ${pkgdir}/usr/share/${pkgname}/tmpl
-    cp ${startdir}/tmpl/*.tmpl ${pkgdir}/usr/share/${pkgname}/tmpl
+    install -D -m0644 ${startdir}/tmpl/*.tmpl -t ${pkgdir}/ubos/share/${pkgname}/tmpl/
 
 # Code
-    mkdir -p ${pkgdir}/usr/share/${pkgname}/mattermost
-    cp -r -p ${srcdir}/mattermost/* ${pkgdir}/usr/share/${pkgname}/mattermost/
-    mkdir -p ${pkgdir}/usr/share/${pkgname}/sql
-    install ${startdir}/sql/* ${pkgdir}/usr/share/${pkgname}/sql/
+    mkdir -p ${pkgdir}/ubos/share/${pkgname}/mattermost
+    cp -r -p ${srcdir}/mattermost/* ${pkgdir}/ubos/share/${pkgname}/mattermost/
+    install -D -m0644 ${startdir}/sql/* -t ${pkgdir}/ubos/share/${pkgname}/sql/
 
 # License
     mkdir -p ${pkgdir}/usr/share/licenses/${pkgname}

@@ -1,6 +1,0 @@
-pre_install() {
-        getent group mattermost &>/dev/null || groupadd -r mattermost >/dev/null
-        getent passwd mattermost &>/dev/null || useradd -r -g mattermost -d /var/lib/mattermost -s /bin/false -c mattermost mattermost >/dev/null
-        true
-}
-

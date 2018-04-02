@@ -127,7 +127,7 @@
         "EnableMobileDownload": true,
         "MaxFileSize": 52428800,
         "DriverName": "local",
-        "Directory": "/var/lib/mattermost/${appconfig.appconfigid}/data/",
+        "Directory": "${appconfig.datadir}/data/",
         "EnablePublicLink": true,
         "PublicLinkSalt": "${installable.customizationpoints.public_link_salt.value}",
         "InitialFont": "luximbi.ttf",
@@ -345,10 +345,10 @@
     "PluginSettings": {
         "Enable": false,
         "EnableUploads": false,
-        "Directory": "/var/lib/mattermost/${appconfig.appconfigid}/plugins",
+        "Directory": "${appconfig.datadir}/plugins",
         "Plugins": {},
         "PluginStates": {},
-        "ClientDirectory": "/var/lib/mattermost/${appconfig.appconfigid}/client-plugins"
+        "ClientDirectory": "${appconfig.datadir}/client-plugins"
     }
 }
 
