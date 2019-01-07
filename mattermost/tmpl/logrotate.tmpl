@@ -5,6 +5,7 @@
 /var/log/mattermost-${appconfig.appconfigid}/*log {
    missingok
    sharedscripts
+   compress
    postrotate
       /usr/bin/systemctl reload mattermost@${appconfig.appconfigid}.service 2>/dev/null || true
    endscript
