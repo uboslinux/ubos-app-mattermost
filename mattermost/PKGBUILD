@@ -3,7 +3,7 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 pkgver=5.8.0
-pkgrel=1
+pkgrel=2
 pkgdesc="An open source, self-hosted Slack-alternative"
 arch=('x86_64') # This package downloads a binary, and does not currently recompile it
 license=("custom:${pkgname}")
@@ -42,7 +42,6 @@ package() {
 # Code
     mkdir -p ${pkgdir}/ubos/share/${pkgname}/mattermost
     cp -r -p ${srcdir}/mattermost/* ${pkgdir}/ubos/share/${pkgname}/mattermost/
-    install -D -m0644 ${startdir}/sql/* -t ${pkgdir}/ubos/share/${pkgname}/sql/
 
 # License
     mkdir -p ${pkgdir}/usr/share/licenses/${pkgname}

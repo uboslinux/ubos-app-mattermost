@@ -98,13 +98,6 @@
                     "retentionbucket"  : "maindb",
                     "privileges"       : "all privileges"
                 }
-            ],
-            "upgraders" : [
-                {
-                    "name"   : "maindb",
-                    "type"   : "sqlscript",
-                    "source" : "sql/fix-3.2-to-3.4-upgrade.sql"
-                }
             ]
         }
     },
