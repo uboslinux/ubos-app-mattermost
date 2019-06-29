@@ -3,7 +3,7 @@
 
     "roles" : {
         "apache2" : {
-            "fixedcontext" : "",
+            "defaultcontext" : "",
             "apache2modules" : [
                 "headers",
                 "proxy",
