@@ -7,7 +7,7 @@ ExecStartPre=/usr/share/ubos-admin/bin/ubos-service-prestart mattermost@%I
 ExecStopPost=/usr/share/ubos-admin/bin/ubos-service-poststop mattermost@%I
 
 WorkingDirectory=/ubos/lib/mattermost/%I
-ExecStart=/ubos/share/mattermost/mattermost/bin/platform --config=/etc/mattermost/%I.json
+ExecStart=/ubos/share/mattermost/mattermost/bin/mattermost --config=/etc/mattermost/%I.json
 User=mattermost
 Group=mattermost
 LimitNOFILE=49152

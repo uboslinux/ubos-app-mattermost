@@ -3,7 +3,7 @@
 
     "roles" : {
         "apache2" : {
-            "defaultcontext" : "",
+            "fixedcontext" : "",
             "apache2modules" : [
                 "headers",
                 "proxy",
@@ -71,7 +71,10 @@
                     "type"         : "file",
                     "name"         : "/etc/mattermost/${appconfig.appconfigid}.json",
                     "template"     : "tmpl/config.json.tmpl",
-                    "templatelang" : "varsubst"
+                    "templatelang" : "varsubst",
+                    "uname"        : "mattermost",
+                    "gname"        : "mattermost",
+                    "permissions"  : "0600"
                 },
                 {
                     "type"         : "perlscript",
