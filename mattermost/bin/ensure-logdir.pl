@@ -11,7 +11,7 @@ use UBOS::Logging;
 use UBOS::Utils;
 
 my $appconfigid = $config->getResolve( 'appconfig.appconfigid' );
-my $logdir      = "/var/log/mattermost-$appconfigid";
+my $logdir      = "/ubos/log/mattermost-$appconfigid";
 
 if( 'deploy' eq $operation ) {
 
