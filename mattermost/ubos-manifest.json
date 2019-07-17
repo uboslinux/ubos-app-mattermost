@@ -96,6 +96,7 @@
                 {
                     "type"         : "systemd-service",
                     "name"         : "mattermost@${appconfig.appconfigid}",
+                    "phase"        : "suspendresume"
                 },
             ]
         },
