@@ -3,7 +3,7 @@
 
     "roles" : {
         "apache2" : {
-            "fixedcontext" : "",
+            "defaultcontext" : "/chat",
             "apache2modules" : [
                 "headers",
                 "proxy",
@@ -59,13 +59,20 @@
                     "type"         : "symlink",
                     "names"        : [
                         "${appconfig.datadir}/bin",
-                        "${appconfig.datadir}/client",
                         "${appconfig.datadir}/config",
                         "${appconfig.datadir}/fonts",
                         "${appconfig.datadir}/i18n",
+                        "${appconfig.datadir}/prepackaged_plugins",
                         "${appconfig.datadir}/templates"
                     ],
                     "source"       : "mattermost/$2"
+                },
+                {
+                    "type"         : "directorytree",
+                    "name"         : "${appconfig.datadir}/client",
+                    "uname"        : "mattermost",
+                    "gname"        : "mattermost",
+                    "source"       : "mattermost/client"
                 },
                 {
                     "type"         : "file",
