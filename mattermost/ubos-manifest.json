@@ -124,6 +124,7 @@
             "type"        : "string",
             "required"    : false,
             "private"     : true,
+            "internal"    : true,
             "default" : {
                 "expression" : "${randomPassword(32)}"
             }
@@ -132,6 +133,7 @@
             "type"        : "string",
             "required"    : false,
             "private"     : true,
+            "internal"    : true,
             "default" : {
                 "expression" : "${randomPassword(32)}"
             }
@@ -140,6 +142,7 @@
             "type"        : "string",
             "required"    : false,
             "private"     : true,
+            "internal"    : true,
             "default" : {
                 "expression" : "${randomPassword(32)}"
             }
