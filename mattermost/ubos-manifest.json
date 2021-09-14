@@ -1,6 +1,8 @@
 {
     "type" : "app",
 
+    "allowswildcardhostname" : false,
+
     "roles" : {
         "apache2" : {
             "defaultcontext" : "/chat",

@@ -2,7 +2,7 @@ developer=http://mattermost.org/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
-pkgver=5.33.3
+pkgver=5.37.2
 # Odd minor version numbers are "quality releases"
 pkgrel=1
 pkgdesc="An open source, self-hosted Slack-alternative"
@@ -14,7 +14,7 @@ depends=(
     'smtp-server'
 )
 options=('!strip')
-sha512sums=('d16a9817f4a7d1aaee79aa4f0d1f47431ebacd76ad6668250309742efe77f0e8584f21dba61d7689134c8f0ab9663c69748eb8d201bdc93dbd41c4a47ecc5564')
+sha512sums=('71c3e7949d8a516d0c224763f46dbba1759e9ffc3da1a343816a76b9573ec24001d2f2f3010c6020d19fa5d157b1616c0f40f69ac019094929bc4cfd8e3139f2')
 install=mattermost.install
 
 package() {
